@@ -1,51 +1,51 @@
-Agdistis(x,y,z) :- cost(2)
-Alchemy(y,z) :- cost(3)
-StanfordNED(y,z) :- disambiguation(x,y,z,t), questiony), disEntity(z)
-DBpediaspotlightNED(x,y,z) :- disambiguation(x,y,z,t), entity(x), question(y), disEntity(z)
-OKAgdistis(t,z) :- disambiguation(x,y,z,t), template(t), disEntity(z)
-AIDA(y,z) :- disambiguation(x,y,z,t), question(y), disEntity(z)
-alexentity(y,z) :- disambiguation(x,y,z,t), question(y), disEntity(z)
-quakisentity(y,z) :- disambiguation(x,y,z,t), question(y), disEntity(z)
-fox(y,z) :- disambiguation(x,y,z,t), question(y), disEntity(z)
-tagme(y,z) :-disambiguation(x,y,z,t), question(y), disEntity(z)
-StanfordNER(y,x) :- recognition(y,x), question(y), entity(x)
-DBpediaNER(y,x) :- recognition(y,x), question(y), entity(x)
-casiaNER(y,x) :- recognition(y,x), question(y), entity(x)
-selfwiringtokenizator(y,t1) :- tokenization(y,t1), question(y), token(t1)
-AskTokenmerger(t1) :- tokenization(y,t1), token(t1)
-selfpostagger(t1,p) :- postagging(y,t1,p), postag(p), token(t1)
-ApacheNLP(y,p,t1) :- tokenization(y,t1), postagging(y,t1,p), token(t1), postag(p), question(y)
-ClearNLP(y,p,t1) :- tokenization(y,t1), postagging(y,t1,p), token(t1), postag(p), question(y)
-TBSLpostagger(y,p,t1) :- tokenization(y,t1), postagging(y,t1,p), token(t1), question(y), postag(p)
-TreeTagger(y,p,t1) :- tokenization(y,t1), postagging(y,t1,p), token(t1), question(y), postag(p)
-SENNA(y,p,t1) :- tokenization(y,t1), postagging(y,t1,p), token(t1), question(y), postag(p)
-Casiaparser(y,x,g) :- dependencyparsing(y,x,t1,p), question(y), entities(x), dependencygraph(g)
-Chaosparser(y,g) :- dependencyparsing(y,x,t1,p), question(y), dependencygraph(g)
-Isoftparser(y,g) :- dependencyparsing(y,x,t1,p), question(y), dependencygraph(g)
-semparser(y,g) :- dependencyparsing(y,x,t1,p), question(y), dependencygraph(g)
-qparser(y,g) :- dependencyparsing(y,x,t1,p), question(y), dependencygraph(g)
-freyaparser(y,s) :- syntacticparsing(y,t1,p,s), question(y), syntacticgraph(s)
-tbslparser(t1,p,s) :- syntacticparsing(y,t1,p,s), question(y), tokens(t1), postag(p), syntacticgraph(s)
-ftriplegenerator(o,t3) :- triplegeneration(t,y,g,s,o,t3,t2), triplepatterns(t3), ontoConcepts(o)
-powerlinguistic(y,t2) :- triplegeneration(t,y,g,s,o,t3,t2), linguistictripleform(t2), question(y)
-aqualinguistic(y,t2) :- triplegeneration(t,y,g,s,o,t3,t2), linguistictripleform(t2), question(y)
-Casiapattern(g,t3) :- triplegeneration(t,y,g,s,o,t3,t2), triplepatterns(t3), dependencygraph(g)
-tbslpattern(s,t3) :- triplegeneration(t,y,g,s,o,t3,t2), triplepatterns(t3), syntacticgraph(s)
-Ontologylookup(y,o) :- datamapping(y,x,p,g,p2,t2,t1,o,t3,m,t4,m1,n), question(y), ontoConcept(o)
-consolidator(p2,o) :- datamapping(y,x,p,g,p2,t2,t1,o,t3,m,t4,m1,n), ontoConcept(o), potentialOntoConcepts(p2)
-powermap(t2,m) :- datamapping(y,x,p,g,p2,t2,t1,o,t3,m,t4,m1,n), linguistictripleform(t2), mappingtable(m)
-Aquamapper(t2,m) :- datamapping(y,x,p,g,p2,t2,t1,o,t3,m,t4,m1,n), linguistictripleform(t2), mappingtable(m)
-HMMmodelling(p2,o) :- datamapping(y,x,p,g,p2,t2,t1,o,t3,m,t4,m1,n), potentialOntoConcepts(p2), ontoConcept(o)
-freyaquerygenerator(t3,q) :- querygeneration(a,q1,t3,t4,g,g1,s,q), triplepattern(t3), sparql(q)
-qakisquerygenerator(t3,q) :- querygeneration(a,q1,t3,t4,g,g1,s,q), triplepattern(t3), sparql(q)
-casiaqgenerator(t4,q1,q) :- querygeneration(a,q1,t3,t4,g,g1,s,q), ontologytriples(t4), questiontype(q1), sparql(q)
-rtvqurygenerator(o,a,q) :- querygeneration(a,q1,t3,t4,g,g1,s,q), ontoConcepts(o), sparql(q), atype(a)
-hawkquerygenerator(g,q) :- querygeneration(a,q1,t3,t4,g,g1,s,q), sparql(q), dependencygraph(g)
-qanswerquerygenerator(g1,q) :- querygeneration(a,q1,t3,t4,g,g1,s,q), sparql(q), querygraph(g1)
-xserquerygenerator(g,q) :- querygeneration(a,q1,t3,t4,g,g1,s,q), sparql(q), dependencygraph(g)
-tbslquerygenerator(s,q) :- querygeneration(a,q1,t3,t4,g,g1,s,q), sparql(q), syntacticgraph(s)
-poweranswer(m,ans) :- answergeneration(m,q,ans), mappingtable(m), finalanswer(ans)
-aquaanswer(m,ans) :- answergeneration(m,q,ans), mappingtable(m), finalanswer(ans)
-okbqaanswer(q,ans) :- answergeneration(m,q,ans), sparql(q), finalanswer(ans)
-qakisatype(y,a) :- answertypeidentification(y,o,a), question(y), atype(a)
-fanswertype(o,a) :- answertypeidentification(y,o,a), ontoConcept(o), atype(a)
+Agdistis(x,y,z) :- 2.2
+Alchemy(y,z) :- 3.2
+StanfordNED(y,z) :- 4.6
+DBpediaspotlightNED(x,y,z) :- 4
+OKAgdistis(t,z) :- 2.6
+AIDA(y,z) :- 2.1
+alexentity(y,z) :- 2.2
+quakisentity(y,z) :- 3.3
+fox(y,z) :- 4.5
+tagme(y,z) :- 2.7
+StanfordNER(y,x) :- 5.3
+DBpediaNER(y,x) :- 2.4
+casiaNER(y,x) :- 2.5
+selfwiringtokenizator(y,t1) :- 1.4
+AskTokenmerger(t1) :- 2.5
+selfpostagger(t1,p) :- 2.3
+ApacheNLP(y,p,t1) :- 3.3
+ClearNLP(y,p,t1) :- 2.2
+TBSLpostagger(y,p,t1) :- 4.3
+TreeTagger(y,p,t1) :- 4.5
+SENNA(y,p,t1) :- 3.4
+Casiaparser(y,x,g) :- 3.4
+Chaosparser(y,g) :- 2.2
+Isoftparser(y,g) :- 4.5
+semparser(y,g) :- 2.2
+qparser(y,g) :- 3.4
+freyaparser(y,s) :- 3.5
+tbslparser(t1,p,s) :- 4.5
+ftriplegenerator(o,t3) :- 4.5
+powerlinguistic(y,t2) :- 2.3
+aqualinguistic(y,t2) :- 1.2
+Casiapattern(g,t3) :- 2.4
+tbslpattern(s,t3) :- 2.5
+Ontologylookup(y,o) :- 2.3
+consolidator(p2,o) :- 4.5
+powermap(t2,m) :- 5.4
+Aquamapper(t2,m) :- 2.2
+HMMmodelling(p2,o) :- 1.2
+freyaquerygenerator(t3,q) :- 5.6
+qakisquerygenerator(t3,q) :- 6.5
+casiaqgenerator(t4,q1,q) :- 2.4
+rtvqurygenerator(o,a,q) :- 4.3
+hawkquerygenerator(g,q) :- 2.4
+qanswerquerygenerator(g1,q) :- 2.5
+xserquerygenerator(g,q) :- 2.3
+tbslquerygenerator(s,q) :- 2.4
+poweranswer(m,ans) :- 3.4
+aquaanswer(m,ans) :- 2.4
+okbqaanswer(q,ans) :- 2.8
+qakisatype(y,a) :- 2.6
+fanswertype(o,a) :- 3.6

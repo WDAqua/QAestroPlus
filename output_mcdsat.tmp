@@ -1,0 +1,13 @@
+[Translate to CNF] SatRWviews.txt_mcdsat.tmp.cnf
+[Compile to DNNF]
+[Generate models]
+q(X2, X3) :- v1(X2, X3)
+q(X2, X3) :- v2(X2, X3)
+q(X2, X3) :- v3(X1, X2, X3)
+q(X2, X3) :- v5(X2, X3)
+q(X2, X3) :- v6(X2, X3)
+q(X2, X3) :- v7(X2, X3)
+q(X2, X3) :- v8(X2, X3)
+q(X2, X3) :- v9(X2, X3)
+q(X2, X3) :- v0(X1, X2, X3)
+[Done] 0.024 0.050 0.008
